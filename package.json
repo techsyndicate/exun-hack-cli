@@ -1,0 +1,23 @@
+{
+  "name": "exuncli",
+  "version": "1.0.0",
+  "description": "Vedika's CLI management system",
+  "type": "module",
+  "main": "bin/client.js",
+  "bin": {
+    "exuncli": "./bin/client.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shyamak Seth",
+  "license": "ISC",
+  "dependencies": {
+    "ansi-color": "^0.2.1",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "readline-sync": "^1.4.10",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1"
+  }
+}
