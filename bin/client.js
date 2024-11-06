@@ -62,11 +62,11 @@ function sleep(ms) {
     return new Promise(r => setTimeout(r, ms))
 }
 
-program.name('NUXE cli').description("Some random description for Vedika's stuffy ass work").version('1.0.0')
+program.name('exuncli').description("Interact with the Nereia city and its inhabitants using our command line interface.").version('1.0.0')
 
 program
 .command('talk')
-.description('Vedika is a hottie. Run Vedika.')
+.description('Interact with various species with a single command.')
     .option('--human', 'Talk to the species as a human.', '')
     .option('--nereian', 'Talk to humans as a nereian', '')
     .action((args, options) => {
@@ -117,13 +117,13 @@ program
 
 program
     .command('map')
-    .description('View live satellite images of Nereia.')
+    .description('View live satellite images of Nereia, and interact with the city.')
     .action((args, options) => {
         var rl = readline.createInterface(process.stdin, process.stdout),
             currentPos = 0
         const mapAscii =  [
-`+----------------------------------+
-|        Underwater City Map        |
+`+-----------------------------------+
+|          Nereia City Map          |
 +-----------------------------------+
 | Sector A        | Sector B        |
 | -------------   | -------------   |
@@ -139,8 +139,8 @@ program
 |                 |                 |
 |                 |                 |
 +-----------------------------------+`,
-`+----------------------------------+
-|        Underwater City Map        |
+`+-----------------------------------+
+|          Nereia City Map          |
 +-----------------------------------+
 | Sector A        | Sector B        |
 | -------------   | -------------   |
@@ -156,8 +156,8 @@ program
 |                 |                 |
 |                 |                 |
 +-----------------------------------+`,
-`+----------------------------------+
-|        Underwater City Map        |
+`+-----------------------------------+
+|          Nereia City Map          |
 +-----------------------------------+
 | Sector A        | Sector B        |
 | -------------   | -------------   |
@@ -173,8 +173,8 @@ program
 |                 |                 |
 |  *You're here*  |                 |
 +-----------------------------------+`,
-`+----------------------------------+
-|        Underwater City Map        |
+`+-----------------------------------+
+|          Nereia City Map          |
 +-----------------------------------+
 | Sector A        | Sector B        |
 | -------------   | -------------   |
@@ -192,6 +192,11 @@ program
 +-----------------------------------+`]
         console.clear()
         consoleKaBaap(color(mapAscii[currentPos], 'green'), rl)
+        consoleKaBaap(color('(Use w, a, s, d to navigate)', 'blue'), rl)
+        consoleKaBaap(color('[A1]: Nereium Mining site 1', 'red'), rl)
+        consoleKaBaap(color('[A2]: Nereium Mining site 2', 'red'), rl)
+        consoleKaBaap(color('<Nereium extracted today> ', 'yellow') + `${Math.floor(Math.random() * 100)}g`, rl)
+        consoleKaBaap(color('<Number of miners working> ', 'yellow') + `${Math.floor(Math.random() * 100)} miners`, rl)
         rl.on('line', (data) => {
             switch (data) {
                 case 'w':
@@ -217,6 +222,37 @@ program
             }
             console.clear()
             consoleKaBaap(color(mapAscii[currentPos], 'green'), rl)
+            switch(currentPos) {
+                case 0:
+                    consoleKaBaap(color('(Use w, a, s, d to navigate)', 'blue'), rl)
+                    consoleKaBaap(color('[A1]: Nereium Mining site 1', 'red'), rl)
+                    consoleKaBaap(color('[A2]: Nereium Mining site 2', 'red'), rl)
+                    consoleKaBaap(color('<Nereium extracted today> ', 'yellow') + `${Math.floor(Math.random() * 100)}g`, rl)
+                    consoleKaBaap(color('<Number of miners working> ', 'yellow') + `${Math.floor(Math.random() * 100)} miners`, rl)
+                    break
+                case 1:
+                    consoleKaBaap(color('(Use w, a, s, d to navigate)', 'blue'), rl)
+                    consoleKaBaap(color('[B1]: Residential Sector 1', 'red'), rl)
+                    consoleKaBaap(color('[B2]: Residential Sector 2', 'red'), rl)
+                    consoleKaBaap(color('<Current Population> ', 'yellow') + `${Math.floor((Math.random() * 10000) + 50000)} people`, rl)
+                    consoleKaBaap(color('<Number of houses> ', 'yellow') + `${Math.floor((Math.random() * 1000)) + 5000} houses`, rl)
+                    break
+                case 2:
+                    consoleKaBaap(color('(Use w, a, s, d to navigate)', 'blue'), rl)
+                    consoleKaBaap(color('[C1]: Sea Plantation 1', 'red'), rl)
+                    consoleKaBaap(color('[C2]: Sea Plantation 2', 'red'), rl)
+                    consoleKaBaap(color('<Today\'s produce> ', 'yellow') + `${Math.floor(Math.random() * 5000)}g`, rl)
+                    consoleKaBaap(color('<Number of species being grown> ', 'yellow') + `${Math.floor((Math.random() * 50)) + 50} corals`, rl)
+                    break
+                case 3:
+                    consoleKaBaap(color('(Use w, a, s, d to navigate)', 'blue'), rl)
+                    consoleKaBaap(color('[D1]: Research Building 1', 'red'), rl)
+                    consoleKaBaap(color('[D2]: Research Building 2', 'red'), rl)
+                    consoleKaBaap(color('<Number of researchers> ', 'yellow') + `${Math.floor(Math.random() * 750)} people`, rl)
+                    consoleKaBaap(color('<Number of buildings currently> ', 'yellow') + `129 buildings`, rl)
+                    break
+                        
+            }
         })
     })
 
