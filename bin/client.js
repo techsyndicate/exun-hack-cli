@@ -75,7 +75,7 @@ program
             console.log('Please talk either as a human or as a nereian.')
             return process.exit()
         }
-        var socket = socketio.connect('http://localhost:3000');
+        var socket = socketio.connect('https://exun-hack-cli.onrender.com');
         socket.on('connect', () => {
             consoleKaBaap('Connected to the server', rl);
             rl.on('line', async (myInput) => {
